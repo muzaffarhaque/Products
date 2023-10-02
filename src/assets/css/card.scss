@@ -1,0 +1,36 @@
+.card-wrapper{
+    width: calc(26.73vw - 17px);
+    min-width: 250px;
+    max-width: 376px;
+    border-radius: 15px;
+    padding: 5px;
+    overflow: hidden;
+    background-color: white;
+    .prod-img{
+        width: 100%;
+        object-fit: cover;
+        aspect-ratio: 1.5;
+        border-radius: 15px;
+    }
+
+
+}
+.description-box{
+    padding: 15px;
+
+}
+.eclipes-1{
+    text-overflow: ellipsis;
+    white-space:nowrap;
+    overflow: hidden;
+}
+@media (max-width:1024px) {
+    .card-wrapper{
+        width: calc(37.73vw - 17px);
+    }
+}
+@media (max-width:444px) {
+    .card-wrapper{
+        width:100%;
+    }
+}
