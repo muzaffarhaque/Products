@@ -1,6 +1,5 @@
 import React from 'react'
 import { Button } from 'react-bootstrap'
-import { IoMdArrowRoundBack } from 'react-icons/io';
 
 export default function AllShimmer({ type }) {
     switch (type) {
