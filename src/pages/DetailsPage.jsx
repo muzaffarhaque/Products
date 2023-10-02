@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { Image } from 'react-bootstrap';
+import { Button, Image } from 'react-bootstrap';
 import { GetApiData } from '../server/Api';
 import { useParams } from 'react-router-dom';
-import { IoMdArrowRoundBack } from 'react-icons/io';
+
 import AllShimmer from '../components/AllShimmer';
 
 export default function DetailsPage() {
@@ -29,7 +29,7 @@ export default function DetailsPage() {
     <section className='details-page-section'>
       <div className='container'>
         <div className='details-header pt-4 pb-0'>
-          <IoMdArrowRoundBack className='fs-28-18 pointer' onClick={() => window.history.back()} />
+        <Button variant="outline-info" onClick={() => window.history.back()} >Back</Button>
         </div>
         {loading ? (
           <AllShimmer type="details"/>
