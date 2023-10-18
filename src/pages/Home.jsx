@@ -34,10 +34,10 @@ export default function Home() {
   }, []);
 
   return (
-    <section className='main-home-section'>
+    <section className='main-home-section bg-blue'>
  
 
-      <div className="container bg-blue position-relative">
+      <div className="container  position-relative">
       <Button className='view-all-btn btn-primary  fw-bold'onClick={()=>navigate('/all/products?limit=6&page=0')}>View All</Button>
         <div className="text-center home-heading">
           <h4 className='fs-34-28 fw-bold text-center'>Featured Listed Products</h4>

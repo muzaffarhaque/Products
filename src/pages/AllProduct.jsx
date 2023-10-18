@@ -22,10 +22,8 @@ export default function AllProduct() {
   async function fetchData() {
   
     const newSkip = (itemsPageNo - 1) * itemsPerPage;
-    const url = `https://dummyjson.com/products${
-        itemsSearch ? `/search?q=${itemsSearch}&` : '?'
-      }limit=${itemsPerPage}&skip=${itemsSearch?0:newSkip}`;
-       const data = await GetApiData(url );
+    const url = `https://dummyjson.com/products${itemsSearch ? `/search?q=${itemsSearch}&` : '?'}limit=${itemsPerPage}&skip=${itemsSearch?0:newSkip}`;
+    const data = await GetApiData(url);
     setAllData(data);
     if (data.products) {
       setIsLoading(false);
@@ -43,14 +41,14 @@ export default function AllProduct() {
     console.log("Cll serch")
     navigate(`/all/search?q=${search}&limit=${itemsPerPage}&page=${itemsPageNo}`);
   }
-  
+ 
   return (
     <div className='bg-blue'>
       <div className="container">
         <div className="all-product-header ">
             <div className="serch-box-wrapper mb-full  d-flex gap-3">
                 <input type="text" className='input-box fs-16-13 mb-full' value={search} onChange={(e)=>setSearch(e.target.value)} placeholder='Serch Product' />
-                <Button className='btn-secondary' onClick={searchHandler}>Search</Button>
+                <Button className={search?"btn-primary":'btn-secondary'} onClick={searchHandler}>Search</Button>
             </div>
             <Button className=' btn-primary mb-full' onClick={()=>navigate("/")}>Show Category Product</Button>
         </div>
@@ -66,7 +64,7 @@ export default function AllProduct() {
             </h4>
             <div className="product-wrapper-frame">
               {allData.products?.map((item, i) => (
-                <Card data={item} key={i} />
+                <Card data={item}  key={i} />
               ))}
             </div>
             <div className="pagination-wrapper">

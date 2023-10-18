@@ -2,8 +2,14 @@ import React from 'react'
 import { Button, Image } from "react-bootstrap";
 import { MdOutlineLocationOn } from "react-icons/md";
 import { useNavigate } from 'react-router-dom';
-export default function Card({data}) {
-    const navigat=useNavigate()
+import { add } from '../redux/CartSlice';
+import { useDispatch } from 'react-redux';
+export default function Card({data,buy=false}) {
+    const navigat=useNavigate();
+    const dispatch=useDispatch();
+    function addTOCart(e){
+      dispatch(add(e));
+    }
   return (
     <div className="card-wrapper">
     <Image className='prod-img pointer' onClick={()=>navigat(`/details/${data.id}`)} src={data.thumbnail} alt="image" />
@@ -18,7 +24,7 @@ export default function Card({data}) {
       </div>
       <div className="product-price-details d-flex align-items-center flex-wrap justify-content-between mt-4 gap-3">
          <h3 className='fs-24-16 primary fw-bold mb-0'> $ {data.price || 404}/-</h3>
-         <Button variant="outline-primary  fw-bold rounded-5 " onClick={()=>navigat(`/details/${data.id}`)}>Read more</Button>
+         <Button variant="outline-primary  fw-bold rounded-1 " onClick={()=>addTOCart(data)}>{buy?"Buy Now":"Add to Cart"} </Button>
       </div>
     </div>
   </div>
